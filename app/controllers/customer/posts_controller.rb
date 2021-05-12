@@ -12,7 +12,7 @@ class Customer::PostsController < ApplicationController
   def create
     post = post.new(post_params)
     post.save
-    redirect_to '/posts_index_path'
+    redirect_to '/top'
   end
 
   def edit
@@ -27,6 +27,6 @@ class Customer::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:image, :title, :body, :genre_id)
+    params.require(:post).permit(:image, :title, :body, :genre_id, :post_image)
   end
 end
