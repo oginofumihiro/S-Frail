@@ -1,5 +1,7 @@
 class Customer::PostsController < ApplicationController
+  
   def index
+    @posts = Post.all
   end
 
   def show
@@ -12,7 +14,7 @@ class Customer::PostsController < ApplicationController
   def create
     post = post.new(post_params)
     post.save
-    redirect_to '/top'
+    redirect_to customer_posts_path
   end
 
   def edit
