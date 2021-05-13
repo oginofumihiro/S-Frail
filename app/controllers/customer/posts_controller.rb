@@ -1,5 +1,5 @@
 class Customer::PostsController < ApplicationController
-  
+
   def index
     @posts = Post.all
   end
@@ -12,8 +12,8 @@ class Customer::PostsController < ApplicationController
   end
 
   def create
-    post = post.new(post_params)
-    post.save
+    @post = Post.new(post_params)
+    @post.save
     redirect_to customer_posts_path
   end
 
@@ -25,10 +25,10 @@ class Customer::PostsController < ApplicationController
 
   def destroy
   end
-  
+
   private
-  
+
   def post_params
-    params.require(:post).permit(:image, :title, :body, :genre_id, :post_image)
+    params.require(:post).permit(:image, :name, :introduction, :genre_id, :post_image)
   end
 end
