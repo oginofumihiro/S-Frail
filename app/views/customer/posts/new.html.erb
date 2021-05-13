@@ -1,7 +1,7 @@
 <h1>新規投稿</h1>
 <%= form_with model: @post, url:customer_posts_path, local:true do |f| %>
   <h4>投稿画像</h4>
-  <%#= f.attachment_field :image %>
+  <%= f.attachment_field :post_image %>
   <h4>題名</h4>
   <%= f.text_field :name %>
   <h4>投稿内容</h4>

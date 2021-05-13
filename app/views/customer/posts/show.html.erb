@@ -1,2 +1,20 @@
-<h1>Customer::Posts#show</h1>
-<p>Find me in app/views/customer/posts/show.html.erb</p>
+<h1>投稿詳細</h1>
+
+<%= attachment_image_tag @post, :post_image %>
+
+<tbody>
+    <tr>
+    <th>題:</th>
+    <%= @post.name %>
+     </tr>
+
+    <tr>
+    <th>投稿内容</th>
+    <%= @post.introduction %>
+    </tr>
+
+    <th>ジャンル</th>
+    <%#= @item.genre.name %>
+
+    <%= link_to '編集', edit_customer_post_path(@post) %>
+</tbody>

@@ -5,6 +5,7 @@ class Customer::PostsController < ApplicationController
   end
 
   def show
+     @post = Post.find(params[:id])
   end
 
   def new
@@ -18,9 +19,13 @@ class Customer::PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
+    post = Post.find(params[:id])
+    post.update(post_params)
+    redirect_to customer_posts_path
   end
 
   def destroy
