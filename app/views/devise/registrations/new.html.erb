@@ -1,6 +1,6 @@
 <h2>さあ始めましょう</h2>
 
-<%= form_with model: @customer, url: customer_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+<%= form_with model: @customer, url: customer_registration_path, method: :post, id: 'new_user', class: 'new_user', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
 
