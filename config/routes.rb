@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :customers
   namespace :customer do
     resources :posts,only: [:index, :show, :edit, :update, :new, :create, :destroy ]
-    get 'users' => 'users#mypage'
+    resources :users, only: [:show]
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  devise_for :customers
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm
 
   get 'top' => 'homes#top'
 
