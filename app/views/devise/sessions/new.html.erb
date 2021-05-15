@@ -1,7 +1,8 @@
-<h2>Log in</h2>
+<h1>S.Frail</h1>
 
-form_withにする
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<h2>ご利用頂きありがとうございます</h2>
+
+<%= form_with model: @customer, url: customer_session_path, method: :post, id: 'new_user', class: 'new_user', local: true do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
