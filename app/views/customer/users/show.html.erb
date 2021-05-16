@@ -2,15 +2,14 @@
 
 <div class="profile-container">
   <h3 class="profile-name"><%= @customer.last_name %> <%= @customer.first_name %></h3>
-   <%= attachment_image_tag @customer, :profile_image, :, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-  <%#= image_tag('sample-author1.jpg') %>
+   <%= attachment_image_tag @current, :profile_image, :string, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 </div>
 
-<% if @customer.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_customer_registration_path, class: "glyphicon glyphicon-pencil btn btn-success" %></p>
+<% if @customer.id == current_customer.id %>
+    <p><%= link_to "プロフィール編集", edit_customer_user_path(@customer.id), class: "glyphicon glyphicon-pencil btn btn-success" %></p>
 <% end %>
 
-<%= link_to " 編集する", edit_customer_registration_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
+<%#= link_to " 編集する", edit_customer_registration_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
 <h1>マイページ</h1>
 <div class = "container">
   <div class = "row">
