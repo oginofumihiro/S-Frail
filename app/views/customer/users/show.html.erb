@@ -1,5 +1,27 @@
 <h1>登録情報</h1>
 
+<div class="profile-container">
+  <h3 class="profile-name"><%= @customer.last_name %> <%= @customer.first_name %></h3>
+  <%#= image_tag('sample-author1.jpg') %>
+</div>
+
 <%= link_to " 編集する", edit_customer_registration_path, class: "glyphicon glyphicon-pencil btn btn-success" %>
+<h1>マイページ</h1>
+<div class = "container">
+  <div class = "row">
+      <div class = "col-3">
+        <P>プロフィール画像 : <%= attachment_image_tag @customer, :profile_image %></P>
+        <P>氏名 : <%= @customer.last_name %> <%= @customer.first_name %></P>
+        <P>カナ : <%= @customer.last_name_kana %> <%= @customer.first_name_kana %> </P>
+        <P>メールアドレス : <%= @customer.email %></P>
+        <P>郵便番号 : <%= @customer.postal_code %></P>
+        <P>住所 : <%= @customer.address %></P>
+        <P>電話番号 : <%= @customer.telephone_number %></P>
+        <%#= link_to post.name, customer_post_path(post) %>
+        <!--<p>ショップ名：<%#= post_image.shop_name %></p>-->
+        <%#= post.introduction %>
+      </div>
+  </div>
+</div>
 
 
