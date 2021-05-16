@@ -3,6 +3,10 @@
 <%= form_with model: @customer, url: customer_registration_path, method: :post, id: 'new_user', class: 'new_user', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  <div>
+    <%= f.label :profile_image, "プロフィール画像" %><br />
+    <%= f.attachment_field :profile_image, autofocus: true %>
+  </div>
 
   <div class="field">
     <%= f.label :last_name, "(性)" %><br />
