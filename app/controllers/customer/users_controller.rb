@@ -14,6 +14,12 @@ class Customer::UsersController < ApplicationController
     redirect_to customer_user_path(@customer.id)
   end
 
+  def destroy
+    @customer = Customer.find(params[:id])
+    @customer.destroy
+    redirect_to new_customer_registration_path
+  end
+
   private
 
   def customer_params
