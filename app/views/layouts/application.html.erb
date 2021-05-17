@@ -9,14 +9,25 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <!--会員側のheader-->
+
   <body>
     <% if customer_signed_in? %>
       <li>
         <%= link_to "ログアウト", customer_user_path(@customer.id), method: :delete %>
       </li>
+      <li>
+        <%= link_to 'マイページ', customer_user_path(current_customer) %>
+      </li>
+      <li>
+        <%= link_to '新規投稿', new_customer_post_path %>
+      </li>
+      <li>
+        <%= link_to '投稿一覧', customer_posts_path %>
+      </li>
 
       <li>
-      <%= link_to 'マイページ', customer_user_path(current_customer) %>
+        <%= link_to 'サイト概要', homes_about_path %>
       </li>
 
     <% else %>

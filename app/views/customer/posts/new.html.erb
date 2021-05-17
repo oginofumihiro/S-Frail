@@ -1,4 +1,10 @@
 <h1>新規投稿</h1>
+<% if @post.errors.any? %>
+  <%= @post.errors.count %>件のエラーが発生しました
+  <% @post.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 <%= form_with model: @post, url:customer_posts_path, local:true do |f| %>
   <h4>投稿画像</h4>
   <%= f.attachment_field :post_image %>
