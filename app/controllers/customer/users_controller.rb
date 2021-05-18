@@ -26,9 +26,4 @@ class Customer::UsersController < ApplicationController
     params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :telephone_number, :profile_image)
   end
 
-
-  # def set_user
-  #   @user = User.find([:id])
-  # end
-
 end
