@@ -25,10 +25,13 @@
       <li>
         <%= link_to '投稿一覧', customer_posts_path %>
       </li>
-
       <li>
         <%= link_to 'サイト概要', homes_about_path %>
       </li>
+
+    <% elsif admin_signed_in? %>
+      <li>管理者</li>
+      <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
 
     <% else %>
       <li>
