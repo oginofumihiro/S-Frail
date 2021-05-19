@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     resources :sessions,only: [:new]
   end
 
+  namespace :admin do
+    resources :customers,only: [:index]
+    # resources :genres,only: [:index, :create, :edit, :update]
+  end
+
   devise_for :customers
   namespace :customer do
     resources :posts,only: [:index, :show, :edit, :update, :new, :create, :destroy ]
