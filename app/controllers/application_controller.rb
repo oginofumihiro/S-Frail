@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-    before_action :authenticate_customer!,except: [:top]
     before_action :configure_permitted_parameters, if: :devise_controller?
 
     protected
@@ -9,7 +8,12 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-     customer_user_path(current_customer)
+    case resource
+    when Admin
+      admin_customers_path
+    when Customer
+      customer_user_path(current_customer)
+    end
   end
 
   def after_sign_out_path_for(resource)

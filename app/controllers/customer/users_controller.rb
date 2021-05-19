@@ -1,4 +1,5 @@
 class Customer::UsersController < ApplicationController
+  before_action :authenticate_customer!
   def show
     @customer = Customer.find(params[:id])
     @profile_images = @customer.profile_image
