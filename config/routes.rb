@@ -8,12 +8,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :customers,only: [:index]
-    resources :genres,only: [:index, :create, :edit, :update]
+    resources :genres,only: [:index, :create, :edit, :update, :destroy]
   end
 
   devise_for :customers
   namespace :customer do
-    resources :posts,only: [:index, :show, :edit, :update, :new, :create, :destroy ]
+    resources :posts,only: [:index, :show, :edit, :update, :new, :create, :destroy]
     resources :users, only: [:show, :edit, :update, :destroy]
   end
 
