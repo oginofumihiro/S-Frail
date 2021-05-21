@@ -6,6 +6,7 @@
         <%= attachment_image_tag post, :post_image %></br>
         <%= link_to post.name, customer_post_path(post) %><br>
         <%= post.introduction %><br>
+        <%= post.genre_id.name %><br>
       </div>
     <% end %>
   </div>
