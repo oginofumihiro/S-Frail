@@ -3,4 +3,7 @@ class Post < ApplicationRecord
   validates :introduction, presence: true
   validates :post_image, presence: true
   attachment :post_image
+
+  belongs_to :genre
+
 end
