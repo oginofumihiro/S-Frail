@@ -18,4 +18,18 @@
 
     <%= link_to '編集', edit_customer_post_path(@post) %>
     <%= link_to "削除", customer_post_path(@post), method: :delete %>
+
+    <% if @post.favorited_by?(@post) %>
+    <p>
+      <%= link_to customer_favorites_path, method: :delete do %>
+        ♥<%= @post.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to customer_favorites_path(post_id: @post, post_image_id: @post.post_image_id), method: :post do %>
+        ♡<%= @post.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% end %>
 </tbody>

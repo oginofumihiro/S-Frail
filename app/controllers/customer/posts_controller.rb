@@ -41,6 +41,6 @@ class Customer::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :name, :introduction, :genre_id, :post_image)
+    params.require(:post).permit(:image, :name, :introduction, :genre_id, :post_image, :customer_id)
   end
 end
