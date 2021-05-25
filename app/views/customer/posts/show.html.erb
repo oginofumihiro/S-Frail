@@ -21,7 +21,7 @@
 
     <% if @post.favorited_by?(@post) %>
     <p>
-      <%= link_to customer_favorites_path, method: :delete do %>
+      <%= link_to customer_favorite_path(post_id: @post, post_image_id: @post.post_image_id), method: :delete do %>
         ♥<%= @post.favorites.count %> いいね
       <% end %>
     </p>
