@@ -7,6 +7,8 @@ class Customer::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.post_comments
+    @comment = current_customer.post_comments.new
   end
 
   def new
