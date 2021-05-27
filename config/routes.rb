@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :posts,only: [:index, :show, :edit, :update, :new, :create, :destroy]
     resources :users, only: [:show, :edit, :update, :destroy]
     resources :favorites, only: [:create, :destroy]
+    # resources :post_images, only: [:new, :create, :index, :show, :destroy] do
+    resources :post_comments, only: [:create, :destroy]
     get "out" => "users#out"
     patch 'withdraw' => "users#withdraw"
   end
