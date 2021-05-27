@@ -19,6 +19,24 @@
     <%= link_to '編集', edit_customer_post_path(@post) %>
     <%= link_to "削除", customer_post_path(@post), method: :delete %>
 
+    <!--フォロー機能-->
+
+  <% unless current_customer == @post.customer %>
+    <% if current_customer.following?(@post.customer) %>
+      <%= form_with(model:@relationships, url: customer_relationship_path(@post.customer), method: :delete ) do |f| %>
+         <%= f.hidden_field :follow_id, :value => @post.customer.id %>
+         <%= f.hidden_field :post_id, value: @post.id %>
+         <%= f.submit 'フォローを外す', class: 'btn btn-danger btn-block' %>
+    <% end %>
+   <% else %>
+     <%= form_with(model:@relationship, url: customer_relationships_path) do |f| %>
+       <%= f.hidden_field :follow_id, :value => @post.customer.id %>
+       <%= f.hidden_field :post_id, value: @post.id %>
+       <%= f.submit 'フォローする', class: 'btn btn-primary btn-block' %>
+     <% end %>
+   <% end %>
+  <% end %>
+
     <h2>コメントをする</h2>
 
     <%= form_with(model:[@post, @comment], url: customer_post_comments_path, method: :post) do |f| %>
