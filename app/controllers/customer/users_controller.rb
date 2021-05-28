@@ -13,12 +13,14 @@ class Customer::UsersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     @customer.update(customer_params)
+    flash[:success] = "登録情報を変更しました"
     redirect_to customer_user_path(@customer.id)
   end
 
   def destroy
     @customer = Customer.find(params[:id])
     @customer.destroy
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
     redirect_to new_customer_registration_path
   end
 
