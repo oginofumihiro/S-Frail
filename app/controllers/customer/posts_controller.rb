@@ -2,7 +2,7 @@ class Customer::PostsController < ApplicationController
   before_action :authenticate_customer!
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def show
@@ -18,6 +18,7 @@ class Customer::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+       flash[:success] = "投稿にに成功しました"
        redirect_to customer_posts_path
     else
        render :new
@@ -37,7 +38,7 @@ class Customer::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:notice] = "投稿を削除しました"
+    flash[:danger] = "投稿を削除しました"
     redirect_to customer_posts_path
   end
 
