@@ -16,5 +16,11 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ // @import "bootstrap-sprockets";
 
-
+.top-page-heder {
+ width: 100vw;
+ padding: 10px 0 20px 0;
+ position: fixed
+ // top: 0;
+}
