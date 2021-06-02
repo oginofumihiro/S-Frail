@@ -3,86 +3,71 @@
   <head>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <!--会員側のheader-->
-
-
-  <!--<body class="d-flex flex-column vh-100">-->
-    <!--<header class="shadow-sm">-->
-    <header class= "top-page-header">
+  <header>
+    <div class= "header-top-content">
       <%= link_to top_path, class:"header-title" do %>
-        <div>S.Frail</div>
+        <i class="fas fa-heartbeat">S.Frail</i>
       <% end %>
-        <div class="header-sub-title">〜健康寿命に革命を〜</div>
 
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <!--<a class="navbar-brand p-3" href="/"><%#= image_tag('logo.png') %></a>-->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-          <% if customer_signed_in? %>
-            <li class ="nav-item">
-              ようこそ<%= current_customer.last_name %><%= current_customer.first_name %>さん
-            </li>
-            <li class ="nav-item">
-              <%= link_to 'ログアウト', customer_out_path %>
-            </li>
-            <%#= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-            <li class ="nav-item">
-              <%= link_to 'マイページ', customer_user_path(current_customer) %>
-            </li>
-            <li>
-              <%= link_to '新規投稿', new_customer_post_path %>
-            </li>
-            <li>
-              <%= link_to '投稿一覧', customer_posts_path %>
-            </li>
-            <li>
-              <%= link_to 'サイト概要', homes_about_path %>
-            </li>
-          <% elsif admin_signed_in? %>
-            <li>
-              <%= link_to "ジャンル", admin_genres_path %>
-            </li>
-            <li>
-              <%= link_to "退会する", admin_out_path %>
-            </li>
-            <%#= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-            <li>
-              <%= link_to "会員一覧", admin_customers_path %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to "新規登録", new_customer_registration_path %>
-            </li>
-            <li>
-              <%= link_to "ログイン", new_customer_session_path %>
-            </li>
-            <li>
-              <%= link_to "topページ", top_path %>
-            </li>
-             <li>
-              <%= link_to "管理者", admin_session_path %>
-            </li>
-          <% end %>
-            </ul>
-          </div>
-          <div class="header-center">
-            <div class="header-center-top">健康寿命を伸ばすなら</div>
-            <div class="header-center-bottom">人生にワクワクを！</div>
-          </div>
+          <ul class="lists-right">
+            <% if customer_signed_in? %>
+              <li>
+                ようこそ<%= current_customer.last_name %><%= current_customer.first_name %>さん
+              </li>
+              <li>
+                <%= link_to 'ログアウト', customer_out_path, class: "logout" %>
+              </li>
+              <li>
+                <%= link_to 'マイページ', customer_user_path(current_customer), class: "myapge" %>
+              </li>
+              <li>
+                <%= link_to '新規投稿', new_customer_post_path, class: "newpost" %>
+              </li>
+              <li>
+                <%= link_to '投稿一覧', customer_posts_path, class: "post" %>
+              </li>
+              <li>
+                <%= link_to 'サイト概要', homes_about_path, class: "about" %>
+              </li>
+            <% elsif admin_signed_in? %>
+              <li>
+                <%= link_to "ジャンル", admin_genres_path %>
+              </li>
+              <li>
+                <%= link_to "退会する", admin_out_path %>
+              </li>
+              <li>
+                <%= link_to "会員一覧", admin_customers_path %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "新規登録", new_customer_registration_path %>
+              </li>
+              <li>
+                <%= link_to "ログイン", new_customer_session_path %>
+              </li>
+              <li>
+                <%= link_to "topページ", top_path %>
+              </li>
+              <li>
+                <%= link_to "管理者", admin_session_path %>
+              </li>
+            <% end %>
+          </ul>
         </div>
       </nav>
-    </header>
-  <!--</body>-->
-  <%= yield %>
+    </div>
+    <p class="header-center">〜健康寿命に革命を〜</p>
+  </header>
+  <body>
+    <%= yield %>
+  </body>
 </html>
