@@ -39,26 +39,26 @@
               </li>
             <% elsif admin_signed_in? %>
               <li>
-                <%= link_to "ジャンル", admin_genres_path %>
+                <%= link_to "ジャンル", admin_genres_path, class: "genre" %>
               </li>
               <li>
-                <%= link_to "退会する", admin_out_path %>
+                <%= link_to "退会する", admin_out_path, class: "logout" %>
               </li>
               <li>
-                <%= link_to "会員一覧", admin_customers_path %>
+                <%= link_to "会員一覧", admin_customers_path, class: "customer" %>
               </li>
             <% else %>
               <li>
-                <%= link_to "新規登録", new_customer_registration_path %>
+                <%= link_to "新規登録", new_customer_registration_path, class: "signup" %>
               </li>
               <li>
-                <%= link_to "ログイン", new_customer_session_path %>
+                <%= link_to "ログイン", new_customer_session_path, class: "login" %>
               </li>
               <li>
-                <%= link_to "topページ", top_path %>
+                <%= link_to "topページ", top_path, class: "top" %>
               </li>
               <li>
-                <%= link_to "管理者", admin_session_path %>
+                <%= link_to "管理者", admin_session_path, class: "admin" %>
               </li>
             <% end %>
           </ul>
