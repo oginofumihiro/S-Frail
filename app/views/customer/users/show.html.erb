@@ -16,6 +16,19 @@
         <p><%= link_to "プロフィール編集", edit_customer_user_path(@customer.id), class: "glyphicon glyphicon-pencil btn btn-success" %></p>
         <P><%= link_to "退会する", customer_out_path %> </P>
       <% end %>
+
+
+      <%= month_calendar(events: Post.all) do |date, posts| %>
+      <%= date.day %>
+
+
+      <% posts.each do |post| %>
+        <div>
+
+          <%=  post.name %>
+        </div>
+      <% end %>
+      <% end %>
   </div>
 </div>
 
