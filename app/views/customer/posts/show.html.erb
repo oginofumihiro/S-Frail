@@ -1,63 +1,54 @@
 <div class= "products_item_body">
-  <h3>投稿詳細</h3>
-  <image class= "image">
-    <%= attachment_image_tag @post, :post_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %>
-  </image>
-    <p>
-        <th>題:</th>
-        <%= @post.name %>
-    </p>
+  <div class= "container px-5 px-sm-0">
+    <div class= "row">
+      <div class= "col-md-3">
+        <h3>投稿詳細</h3>
+        <image class= "image">
+          <%= attachment_image_tag @post, :post_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %>
+        </image>
+          <p>
+              <th>題:</th>
+              <%= @post.name %>
+          </p>
 
-    <P>
-        <th>投稿内容</th>
-        <%= @post.introduction %>
-    </P>
+          <P>
+              <th>投稿内容</th>
+              <%= @post.introduction %>
+          </P>
 
-    <th>ジャンル</th>
-    <%= @post.genre.name %>
+          <th>ジャンル</th>
+          <%= @post.genre.name %>
 
-    <br>
+          <br>
 
-    <% if @post.customer_id == current_customer.id %>
-        <%= link_to '編集', edit_customer_post_path(@post) %>
-        <%= link_to "削除", customer_post_path(@post), method: :delete, data: {confirm: '本当に削除しますか？'} %>
-    <% end %>
+          <% if @post.customer_id == current_customer.id %>
+              <%= link_to '編集', edit_customer_post_path(@post) %>
+              <%= link_to "削除", customer_post_path(@post), method: :delete, data: {confirm: '本当に削除しますか？'} %>
+          <% end %>
 
-    <!--フォロー機能-->
+          <!--フォロー機能-->
 
-  <% unless current_customer == @post.customer %>
-    <% if current_customer.following?(@post.customer) %>
-      <%= form_with(model:@relationships, url: customer_relationship_path(@post.customer), method: :delete ) do |f| %>
-         <%= f.hidden_field :follow_id, :value => @post.customer.id %>
-         <%= f.hidden_field :post_id, value: @post.id %>
-         <%= f.submit 'フォローを外す', class: 'btn btn-danger btn-block' %>
-    <% end %>
-   <% else %>
-     <%= form_with(model:@relationship, url: customer_relationships_path) do |f| %>
-       <%= f.hidden_field :follow_id, :value => @post.customer.id %>
-       <%= f.hidden_field :post_id, value: @post.id %>
-       <%= f.submit 'フォローする', class: 'btn btn-primary btn-block' %>
-     <% end %>
-   <% end %>
-  <% end %>
+        
+      </div>
 
-    <h2>コメントをする</h2>
+      <div class= "col-md-8 offset-md-1">
+        <h2>コメントをする</h2>
 
-    <%= form_with(model:[@post, @comment], url: customer_post_comments_path, method: :post) do |f| %>
-     <%= f.text_area :comment %>
-     <%= f.hidden_field :post_id, value: @post.id %>
-     <%= f.submit 'コメントする' %>
+          <%= form_with(model:[@post, @comment], url: customer_post_comments_path, method: :post) do |f| %>
+          <%= f.text_area :comment %>
+          <%= f.hidden_field :post_id, value: @post.id %>
+          <%= f.submit 'コメントする' %>
 
-     <% end %>
+          <% end %>
 
-    <h2>コメント一覧</h2>
+        <h2>コメント一覧</h2>
 
-    <% @comments.each do |comment| %>
-      <%= comment.comment %>
-
-    <% end %>
-    <%= link_to 'マイページ', customer_user_path(current_customer) %>
-
-    <%#= render 'customer/posts/like', post: @post %>
-
+          <% @comments.each do |comment| %>
+          <%= comment.comment %>
+          <% end %>
+          <!--いいね機能-->
+          <%= render 'customer/posts/like', post: @post %>
+      </div>
+    </div>
+  </div>
 </div>
