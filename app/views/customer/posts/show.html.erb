@@ -27,8 +27,10 @@
           <% end %>
 
           <!--フォロー機能-->
+          <div class="follow_<%= @post.id %>">
+            <%= render 'customer/posts/follow', post: @post %>
+          </div>
 
-        
       </div>
 
       <div class= "col-md-8 offset-md-1">
@@ -47,7 +49,9 @@
           <%= comment.comment %>
           <% end %>
           <!--いいね機能-->
-          <%= render 'customer/posts/like', post: @post %>
+          <div class="post_<%= @post.id %>">
+            <%= render 'customer/posts/like', post: @post %>
+          </div>
       </div>
     </div>
   </div>
