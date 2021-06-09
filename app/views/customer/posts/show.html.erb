@@ -47,6 +47,7 @@
 
           <% @comments.each do |comment| %>
           <%= comment.comment %>
+          <%= link_to "削除", customer_post_comment_path(@comments), method: :delete, data: {confirm: '本当に削除しますか？'} %>
           <% end %>
           <!--いいね機能-->
           <div class="post_<%= @post.id %>">
