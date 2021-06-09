@@ -1,7 +1,10 @@
 class Customer::UsersController < ApplicationController
   before_action :authenticate_customer!
+
   def show
     @customer = Customer.find(params[:id])
+
+    @posts = @customer.posts
     @profile_images = @customer.profile_image
     @post = Post.where(customer_id: params[:id]).last
   end
