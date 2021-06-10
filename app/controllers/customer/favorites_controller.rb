@@ -1,15 +1,16 @@
 class Customer::FavoritesController < ApplicationController
   def create
+    @post = Post.find(params[:post_id])
     favorite = Favorite.new(post_id: params[:post_id], post_image_id: params[:post_image_id])
     favorite.save
-    redirect_to customer_post_path(params[:post_id])
+    # redirect_to customer_post_path(params[:post_id])
   end
 
   def destroy
-    # @post = Post.find(params[:post_id])
-    favorite = Favorite.find_by(post_id: params[:post_id], post_image_id: params[:post_image_id])
+    @post = Post.find(params[:id])
+    favorite = Favorite.find_by(post_id: params[:id], post_image_id: params[:post_image_id])
     favorite.destroy
-    redirect_to customer_post_path(params[:post_id])
+    # redirect_to customer_post_path(params[:post_id])
   end
 
   # def favorite_params

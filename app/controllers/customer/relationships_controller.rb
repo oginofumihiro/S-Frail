@@ -2,25 +2,27 @@ class Customer::RelationshipsController < ApplicationController
   before_action :set_customer
 
   def create
+    @post = Post.find(params[:post_id])
     following = current_customer.follow(@customer)
     if following.save
       flash[:success] = 'ユーザーをフォローしました'
       #render :show
-      redirect_to customer_post_path(params[:post_id])
+      # redirect_to customer_post_path(params[:post_id])
     else
-      flash.now[:alert] = 'ユーザーのフォローに失敗しました'
-      redirect_to customer_post_path(params[:post_id])
+      # flash.now[:alert] = 'ユーザーのフォローに失敗しました'
+      # redirect_to customer_post_path(params[:post_id])
     end
   end
 
   def destroy
+    @post = Post.find(params[:post_id])
     following = current_customer.unfollow(@customer)
     if following.destroy
       flash[:success] = 'ユーザーのフォローを解除しました'
-      redirect_to customer_post_path(params[:post_id])
+      # redirect_to customer_post_path(params[:post_id])
     else
       flash.now[:alert] = 'ユーザーのフォロー解除に失敗しました'
-      redirect_to customer_post_path(params[:post_id])
+      # redirect_to customer_post_path(params[:post_id])
     end
   end
 
