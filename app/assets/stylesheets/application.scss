@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
@@ -25,7 +26,7 @@
 }
 
 header{
-  background-color: #7b9ad0;
+  background-color: white;
 }
 
 .header-top-content{
@@ -35,6 +36,10 @@ header{
   justify-content: space-between;
   margin: 10px 0 30px 0;
   color: white;
+}
+
+.header-name{
+  color: black;
 }
 
 .logout{
@@ -57,11 +62,44 @@ header{
   color: white;
 }
 
-.lists-right{
+.genre{
+  color: white;
+}
+
+.customer{
+  color: white;
+}
+
+.signup{
+  color: white;
+}
+
+.login{
+  color: white;
+}
+
+.top{
+  color: white;
+}
+
+.admin{
+  color: white;
+}
+
+.dropdown-menu{
+  right: 0;
+  left: initial;
+}
+
+.dropdown-menu > .show{
   display: flex;
-  list-style: none;
+  flex-wrap: wrap;
   margin: 0 30px 0 auto;
   color: white;
+}
+
+.dropdown-item{
+  color: black;
 }
 
 .header-title{
@@ -70,7 +108,7 @@ header{
   color: black;
   font-family: 'arial';
   margin-left: 4%;
-  color: white;
+  color: black;
 }
 
 .header-center {
@@ -81,5 +119,5 @@ header{
   flex-direction: column;
   color: black;
   font-family: 'arial';
-  color: white;
+  color: black;
 }

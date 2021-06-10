@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :relationships, only: [:create, :destroy]
     get "out" => "users#out"
     patch 'withdraw' => "users#withdraw"
+    get 'search', to: 'posts#search'
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm

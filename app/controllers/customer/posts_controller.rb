@@ -1,5 +1,7 @@
 class Customer::PostsController < ApplicationController
   before_action :authenticate_customer!
+  before_action :baria_user, only: [:edit, :destroy, :update]
+  before_action :set_q, only: [:index, :search]
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -7,7 +9,7 @@ class Customer::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.post_comments
+    @comments = @post.post_comments.order(created_at: :desc)
     @comment = current_customer.post_comments.new
   end
 
@@ -17,9 +19,10 @@ class Customer::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.start_time = DateTime.now
     if @post.save
        flash[:success] = "投稿にに成功しました"
-       redirect_to customer_posts_path
+      redirect_to customer_posts_path
     else
        render :new
     end
@@ -42,9 +45,24 @@ class Customer::PostsController < ApplicationController
     redirect_to customer_posts_path
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:image, :name, :introduction, :genre_id, :post_image, :customer_id)
   end
+
+  def set_q
+    @q = Post.ransack(params[:q])
+  end
+
+  def baria_user
+    unless Post.find(params[:id]).customer_id == current_customer.id
+        redirect_to top_path
+    end
+  end
+
 end

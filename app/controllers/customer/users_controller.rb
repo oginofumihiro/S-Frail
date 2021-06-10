@@ -3,7 +3,6 @@ class Customer::UsersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-
     @posts = @customer.posts
     @profile_images = @customer.profile_image
     @post = Post.where(customer_id: params[:id]).last

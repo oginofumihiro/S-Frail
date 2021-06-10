@@ -34,21 +34,11 @@
       </div>
 
       <div class= "col-md-8 offset-md-1">
-        <h2>コメントをする</h2>
+        <!--コメント機能-->
+        <div class="comments_<%= @post.id %>">
+          <%= render 'customer/posts/comment', post: @post %>
+        </div>
 
-          <%= form_with(model:[@post, @comment], url: customer_post_comments_path, method: :post) do |f| %>
-          <%= f.text_area :comment %>
-          <%= f.hidden_field :post_id, value: @post.id %>
-          <%= f.submit 'コメントする' %>
-
-          <% end %>
-
-        <h2>コメント一覧</h2>
-
-          <% @comments.each do |comment| %>
-            <%= comment.comment %>
-            <%= link_to "削除", customer_post_comment_path(comment.id), method: :delete, data: {confirm: '本当に削除しますか？'} %>
-          <% end %>
           <!--いいね機能-->
           <div class="post_<%= @post.id %>">
             <%= render 'customer/posts/like', post: @post %>

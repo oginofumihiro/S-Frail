@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Admin.create(email: 'sfrail@1127.com', password: 'password') #管理者のメールアドレスとパスワード
 Genre.create(name: "運動")
+Genre.create(name: "食事")
+Genre.create(name: "会話")

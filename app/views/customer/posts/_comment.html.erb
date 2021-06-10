@@ -1,0 +1,12 @@
+<h2>コメントをする</h2>
+
+  <%= form_with(model:[post, @comment], url: customer_post_comments_path, method: :post) do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.hidden_field :post_id, value: post.id %>
+    <%= f.submit 'コメントする' %>
+  <% end %>
+  <h2>コメント一覧</h2>
+  <% @comments.each do |comment| %>
+    <%= comment.comment %>
+    <%= link_to "削除", customer_post_comment_path(comment.id), method: :delete, remote: true, data: {confirm: '本当に削除しますか？'} %>
+  <% end %>
