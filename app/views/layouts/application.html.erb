@@ -33,7 +33,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <% if customer_signed_in? %>
               <%= link_to 'ログアウト', customer_out_path, class: "logout dropdown-item" %>
-              <%= link_to 'マイページ', customer_user_path(current_customer), class: "myapge dropdown-item" %>
+              <%= link_to 'マイページ', customer_customer_path(current_customer), class: "myapge dropdown-item" %>
               <%= link_to '新規投稿', new_customer_post_path, class: "newpost dropdown-item" %>
               <%= link_to '投稿一覧', customer_posts_path, class: "post dropdown-item" %>
               <%= link_to 'サイト概要', homes_about_path, class: "about dropdown-item" %>
