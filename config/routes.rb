@@ -21,8 +21,9 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy]
     resources :relationships, only: [:create, :destroy]
     get "out" => "customers#out"
-    patch 'withdraw' => "customers#withdraw"
+    get "ranking" => "posts#ranking"
     get 'search', to: 'posts#search'
+    patch 'withdraw' => "customers#withdraw"
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm

@@ -1,11 +1,9 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%#= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-<%= form_with model: @customer, url: customer_user_path(@cutomer.id), local:true do |f| %>
+<%= form_with model: @customer, url: customer_customer_path(@cutomer.id), local:true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <%= attachment_image_tag @current, :profile_image, :string, 60, 60, fallback: "no_image.jpg"%>
-  <!--<label for="inputImage">ProfileImage</label>-->
   <%= f.label :profile_image, "プロフィール画像" %><br />
   <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
 
