@@ -1,10 +1,11 @@
 class Customer::PostsController < ApplicationController
   before_action :authenticate_customer!
-  before_action :baria_user, only: [:edit, :destroy, :update]
-  before_action :set_q, only: [:index, :search]
+  before_action :baria_customer, only: [:edit, :destroy, :update]
+  before_action :set_q, only: [:index, :new, :show, :create, :update, :edit, :destroy, :search]
 
   def index
     @posts = Post.all.order(created_at: :desc)
+    @posts = Post.includes(:favorited_custmers).sort {|a,b| b.favorited_custmers.size <=> a.favorited_custmers.size}
   end
 
   def show
@@ -49,6 +50,10 @@ class Customer::PostsController < ApplicationController
     @results = @q.result
   end
 
+  def ranking
+     @posts = Post.includes(:favorited_custmers).sort {|a,b| b.favorited_custmers.size <=> a.favorited_custmers.size}
+  end
+
   private
 
   def post_params
@@ -59,7 +64,7 @@ class Customer::PostsController < ApplicationController
     @q = Post.ransack(params[:q])
   end
 
-  def baria_user
+  def baria_customer
     unless Post.find(params[:id]).customer_id == current_customer.id
         redirect_to top_path
     end

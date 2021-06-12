@@ -1,4 +1,6 @@
 class HomesController < ApplicationController
+    before_action :set_q, only: [:top, :about]
+
     def top
         @q = Customer.search(params[:q])
         @results = @q.result(distinct: true)
@@ -6,5 +8,9 @@ class HomesController < ApplicationController
     end
 
     def about
+    end
+
+    def set_q
+    @q = Post.ransack(params[:q])
     end
 end
