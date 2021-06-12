@@ -15,13 +15,13 @@ Rails.application.routes.draw do
   devise_for :customers
   namespace :customer do
     resources :posts,only: [:index, :show, :edit, :update, :new, :create, :destroy]
-    resources :users, only: [:show, :edit, :update, :destroy]
+    resources :customers, only: [:show, :edit, :update, :destroy]
     resources :favorites, only: [:create, :destroy]
     # resources :post_images, only: [:new, :create, :index, :show, :destroy] do
     resources :post_comments, only: [:create, :destroy]
     resources :relationships, only: [:create, :destroy]
-    get "out" => "users#out"
-    patch 'withdraw' => "users#withdraw"
+    get "out" => "customers#out"
+    patch 'withdraw' => "customers#withdraw"
     get 'search', to: 'posts#search'
   end
 

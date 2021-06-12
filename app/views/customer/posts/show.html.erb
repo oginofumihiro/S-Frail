@@ -30,13 +30,12 @@
           <div class="follow_<%= @post.id %>">
             <%= render 'customer/posts/follow', post: @post %>
           </div>
-
       </div>
 
       <div class= "col-md-8 offset-md-1">
         <!--コメント機能-->
-        <div class="comments_<%= @post.id %>">
-          <%= render 'customer/posts/comment', post: @post %>
+        <div id="comments">
+          <%= render 'customer/post_comments/comment', post: @post %>
         </div>
 
           <!--いいね機能-->
