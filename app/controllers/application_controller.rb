@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_customers_path
     when Customer
-      customer_user_path(current_customer)
+      customer_customer_path(current_customer)
     end
   end
 
