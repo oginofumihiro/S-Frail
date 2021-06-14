@@ -6,8 +6,6 @@ class Customer::RelationshipsController < ApplicationController
     following = current_customer.follow(@customer)
     if following.save
       flash[:success] = 'ユーザーをフォローしました'
-      #render :show
-      # redirect_to customer_post_path(params[:post_id])
     else
       # flash.now[:alert] = 'ユーザーのフォローに失敗しました'
       # redirect_to customer_post_path(params[:post_id])
