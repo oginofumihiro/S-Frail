@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'inquiry/index'
+  get 'inquiry/confirm'
+  get 'inquiry/thanks'
   devise_for :admins, controllers: {sessions: 'admins/sessions'}
 
   namespace :admins do
@@ -7,8 +10,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :customers,only: [:index]
     get "out" => "customers#out"
+    resources :customers,only: [:index]
     resources :genres,only: [:index, :create, :edit, :update, :destroy]
   end
 
@@ -31,4 +34,8 @@ Rails.application.routes.draw do
   get "top" => "homes#top"
 
   get "homes/about", to: "homes#about"
+  root  'inquiry#index'
+  get   'inquiry'         => 'inquiry#index'     # 入力画面
+  post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
 end
