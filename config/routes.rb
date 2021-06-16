@@ -18,11 +18,15 @@ Rails.application.routes.draw do
   devise_for :customers
   namespace :customer do
     resources :posts,only: [:index, :show, :edit, :update, :new, :create, :destroy]
-    resources :customers, only: [:show, :edit, :update, :destroy]
+    resources :customers, only: [:show, :edit, :update, :destroy] do
+      resources :favorites, only: [:index]
+    end
     resources :favorites, only: [:create, :destroy]
-    # resources :post_images, only: [:new, :create, :index, :show, :destroy] do
     resources :post_comments, only: [:create, :destroy]
     resources :relationships, only: [:create, :destroy]
+    get "favorite" => "favorites#favorite"
+    get "following" => "relationships#following"
+    # get "follower" => "relationships#follower"
     get "out" => "customers#out"
     get "ranking" => "posts#ranking"
     get 'search', to: 'posts#search'
