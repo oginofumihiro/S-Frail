@@ -1,19 +1,25 @@
-<img src="/assets/DD610A9E-1737-4F91-9031-126C2F8B2628_1_105_c.jpeg" alt="">
-<h1>ようこそS.Frailへ！</h1>
-<br>
-皆さんにワクワクを！</br>
-皆さんの力になれたら幸いです。</br>
-テスト中です！
+<!--topページ-->
+<div class="inner_bg">
+  <img src="/assets/354C9DFA-2161-4BEE-81C3-4D09EFC480EB_1_105_c.jpeg" alt="">
+    <div class="inner_bg_caption">
+      <h1>ようこそS.Frailへ！</h1>
+      <p>
+      皆さんにワクワクを！</br>
+      皆さんの力になれたら幸いです。</br>
+      テスト中です！
+      </p>
+    </div>
+</div>
 
-<h2>新着一覧</h2>
+<!--新着一覧-->
 <div class = "container">
   <div class = "row">
     <% @posts.each do |post| %>
       <div class = "col-3">
         <%= attachment_image_tag post, :post_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></br>
+        [<%= post.genre.name %>]<br>
         <%= link_to post.name, customer_post_path(post) %><br>
-        <%= post.introduction %><br>
-        <%= post.genre.name %><br>
       </div>
     <% end %>
   </div>
+</div>

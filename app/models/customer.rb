@@ -11,19 +11,19 @@ class Customer < ApplicationRecord
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-  has_many :followers, through: :reverse_of_relationships, source: :user
+  has_many :followers, through: :reverse_of_relationships, source: :customer
   has_many :favorited_custmers, through: :favorites, source: :post
 
   def follow(other_customer)
-   unless self == other_customer
-     self.relationships.find_or_create_by(follow_id: other_customer.id)
-   end
+    relationships.find_or_create_by(follow_id: other_customer.id) unless self == other_customer
   end
+
   def unfollow(other_customer)
-   relationship = self.relationships.find_by(follow_id: other_customer.id)
-   relationship.destroy if relationship
+    relationship = relationships.find_by(follow_id: other_customer.id)
+    relationship.destroy if relationship
   end
+
   def following?(other_customer)
-   self.followings.include?(other_customer)
+    followings.include?(other_customer)
   end
 end

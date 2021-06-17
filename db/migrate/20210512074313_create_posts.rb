@@ -6,7 +6,6 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :image_id
       t.text :introduction
       t.boolean :is_active
-      
 
       t.timestamps
     end

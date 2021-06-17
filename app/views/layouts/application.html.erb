@@ -20,7 +20,7 @@
           <ul class="page_nav">
             <% if customer_signed_in? %>
             <li>
-              <%= link_to 'ログアウト', customer_out_path, class: "logout dropdown-item" %>
+              <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "logout dropdown-item" %>
             </li>
             <li>
               <%= link_to "top", top_path, class: "top dropdown-item" %>
@@ -40,9 +40,12 @@
             <li>
               <%= link_to "管理者", admin_session_path, class: "admin dropdown-item" %>
             </li>
+            <li>
+              <%= link_to "退会", customer_confirm_unsubscribe_path, class: "unsubscribe dropdown-item" %>
+            </li>
             <% elsif admin_signed_in? %>
               <%= link_to "ジャンル", admin_genres_path, class: "genre" %>
-              <%= link_to "退会する", admin_out_path, class: "logout" %>
+              <%= link_to "ログアウト", admin_out_path, class: "logout" %>
               <%= link_to "会員一覧", admin_customers_path, class: "customer" %>
             <% else %>
               <%= link_to "新規登録", new_customer_registration_path, class: "signup" %>

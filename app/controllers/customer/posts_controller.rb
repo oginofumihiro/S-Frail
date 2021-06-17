@@ -1,11 +1,11 @@
 class Customer::PostsController < ApplicationController
   before_action :authenticate_customer!
-  before_action :baria_customer, only: [:edit, :destroy, :update]
-  before_action :set_q, only: [:index, :new, :show, :create, :update, :edit, :destroy, :search]
+  before_action :baria_customer, only: %i[edit destroy update]
+  before_action :set_q, only: %i[index new show create update edit destroy search]
 
   def index
     @posts = Post.all.order(created_at: :desc)
-    @posts = Post.includes(:favorited_custmers).sort {|a,b| b.favorited_custmers.size <=> a.favorited_custmers.size}
+    @posts = Post.includes(:favorited_custmers).sort { |a, b| b.favorited_custmers.size <=> a.favorited_custmers.size }
   end
 
   def show
@@ -22,10 +22,10 @@ class Customer::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.start_time = DateTime.now
     if @post.save
-       flash[:success] = "投稿にに成功しました"
+      flash[:success] = '投稿にに成功しました'
       redirect_to customer_posts_path
     else
-       render :new
+      render :new
     end
   end
 
@@ -42,7 +42,7 @@ class Customer::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:danger] = "投稿を削除しました"
+    flash[:danger] = '投稿を削除しました'
     redirect_to customer_posts_path
   end
 
@@ -51,7 +51,7 @@ class Customer::PostsController < ApplicationController
   end
 
   def ranking
-     @posts = Post.includes(:favorited_custmers).sort {|a,b| b.favorited_custmers.size <=> a.favorited_custmers.size}
+    @posts = Post.includes(:favorited_custmers).sort { |a, b| b.favorited_custmers.size <=> a.favorited_custmers.size }
   end
 
   private
@@ -65,9 +65,6 @@ class Customer::PostsController < ApplicationController
   end
 
   def baria_customer
-    unless Post.find(params[:id]).customer_id == current_customer.id
-        redirect_to top_path
-    end
+    redirect_to top_path unless Post.find(params[:id]).customer_id == current_customer.id
   end
-
 end

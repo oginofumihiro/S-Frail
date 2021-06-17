@@ -2,3 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.inner_bg > img{
+  height: 500px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 0 80px;
+}
+
+.inner_bg_caption{
+  color: white;
+  margin: 0 0 0 120px;
+}

@@ -1,5 +1,5 @@
 <h2>会員編集</h2>
-<%= form_with model: @customer, url: customer_user_path(@customer.id), method: :patch, local:true do |f| %>
+<%= form_with model: @customer, url: customer_customer_path(@customer.id), method: :patch, local:true do |f| %>
 
   <%= attachment_image_tag @customer, :profile_image, :string, 60, 60, fallback: "no_image.jpg"%>
   <%= f.label :profile_image, "プロフィール画像" %><br />

@@ -1,0 +1,7 @@
+<table>
+<% @favorites.each do |favorite| %>
+<tr>
+  <td><%= favorite.post.customer.last_name %> <%= favorite.post.customer.first_name %> </td>
+  <td><%= link_to '詳細', customer_customer_path(favorite.post.customer) %></td>
+</tr>
+<% end %>

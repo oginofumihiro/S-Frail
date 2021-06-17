@@ -15,7 +15,7 @@ class Customer::PostCommentsController < ApplicationController
     if @comment.destroy
       @post = @comment.post
 
-      flash[:danger] = "コメントを削除しました"
+      flash[:danger] = 'コメントを削除しました'
       # redirect_to customer_post_path(@comment.post_id)
     else
       # render :show
@@ -23,6 +23,7 @@ class Customer::PostCommentsController < ApplicationController
   end
 
   private
+
   def comment_params
     params.require(:post_comment).permit(:comment, :customer_id, :post_id)
   end
