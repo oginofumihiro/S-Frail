@@ -16,7 +16,10 @@ Rails.application.routes.draw do
     resources :genres, only: %i[index create edit update destroy]
   end
 
-  devise_for :customers, controllers: { sessions: 'customer/sessions' }
+  devise_for :customers, controllers: {
+    sessions: 'customer/sessions',
+    registrations: 'customer/registrations'
+  }
 
   namespace :customer do
     resources :posts, only: %i[index show edit update new create destroy]
