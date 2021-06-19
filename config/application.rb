@@ -1,6 +1,8 @@
 require_relative 'boot'
 
 require 'rails/all'
+# g.factory_bot false
+# g.factory_bot dir: 'custom/dir/for/factories'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

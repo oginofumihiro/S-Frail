@@ -1,7 +1,7 @@
 <table>
 <% @followings.each do |following| %>
 <tr>
-  <td><%= following.follow.last_name %> <%= following.follow.first_name %> </td>
-  <td><%= link_to '詳細', customer_customer_path(following.follow) %></td>
+  <td><%= following.last_name %> <%= following.first_name %> </td>
+  <td><%= link_to '詳細', customer_customer_path(following) %></td>
 </tr>
 <% end %>
