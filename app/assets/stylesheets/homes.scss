@@ -29,11 +29,11 @@
 
 /* --- 段差で背景画像のアニメーションを実行 ----------------- */
 .box .src1 {
-  background-image : url('354C9DFA-2161-4BEE-81C3-4D09EFC480EB_1_105_c.jpeg');/* 背景の画像を指定 */
+  background-image: image-url('354C9DFA-2161-4BEE-81C3-4D09EFC480EB_1_105_c.jpeg');/* 背景の画像を指定 */
   border-radius: 35px;
 }
 .box .src2 {
-  background-image : url('38AD4B95-731E-48F9-A53A-1298B14D07FD_1_105_c.jpeg');   /* 背景の画像を指定 */
+  background-image: image-url('38AD4B95-731E-48F9-A53A-1298B14D07FD_1_105_c.jpeg');   /* 背景の画像を指定 */
   border-radius: 35px;
   animation-delay: 5s;
 }
