@@ -20,7 +20,13 @@ class Customer::RelationshipsController < ApplicationController
   end
 
   def following
-    @followings = current_customer.relationships
+    # @followings = current_customer.relationships
+    @relationship_followings = Relationship.where(customer_id: current_customer.id)
+    @followings = []
+    @relationship_followings.each do |following|
+      customer = Customer.find(following.follow_id)
+      @followings.push(customer)
+    end
   end
 
   private
