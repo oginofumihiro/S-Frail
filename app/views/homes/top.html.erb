@@ -44,14 +44,19 @@
 <!--</script>-->
 
 <!--新着一覧-->
-<div class = "container">
-  <div class = "row">
+<section class="top_blog">
+  <h2 class="top_common_hd">
+    <span class="caption">新着一覧</span>
+  </h2>
+<div class="container">
+  <div class="row">
     <% @posts.each do |post| %>
-      <div class = "col-3">
-        <%= attachment_image_tag post, :post_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></br>
+      <div class="col-3">
+        <div class="img"><%= attachment_image_tag post, :post_image, format: 'jpeg', size: "200x200" , fallback: "no_image.jpg" %></div></br>
         [<%= post.genre.name %>]<br>
         <%= link_to post.name, customer_post_path(post) %><br>
       </div>
     <% end %>
   </div>
 </div>
+</section>

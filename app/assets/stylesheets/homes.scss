@@ -4,33 +4,38 @@
 
 .box {
   position: relative;
-  width: 953px;
   height: 100vh;
   left: 0px;
   top: 0px;
   z-index: 0;
+  margin: 0px 0px 0px 200px;
 }
 
 .box .bgImg {
-  position   : absolute;
-  width  : 100%;
-  height     : 100%;
-  top        : 0;
-  left       : 0;
-  bottom     : 0;
-  right      : 0;
-  opacity    : 0;
-  background-size: cover;
-  animation  : bgAnime 20s infinite;   /* 4画像 × 各5s = 20s */
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  background-size: 100% auto;
+  animation: bgAnime 10s infinite;   /* 4画像 × 各5s = 20s */
+  object-fit: cover;
 }
 
 /* --- 段差で背景画像のアニメーションを実行 ----------------- */
 .box .src1 {
-  background-image : url('354C9DFA-2161-4BEE-81C3-4D09EFC480EB_1_105_c.jpeg');   /* 背景の画像を指定 */
+  background-image : url('354C9DFA-2161-4BEE-81C3-4D09EFC480EB_1_105_c.jpeg');/* 背景の画像を指定 */
+  border-radius: 35px;
 }
 .box .src2 {
   background-image : url('38AD4B95-731E-48F9-A53A-1298B14D07FD_1_105_c.jpeg');   /* 背景の画像を指定 */
-  animation-delay  : 5s;
+  border-radius: 35px;
+  animation-delay: 5s;
 }
 // .box .src3 {
 //   background-image : url('画像のパス');   /* 背景の画像を指定 */
@@ -43,8 +48,14 @@
 
 @keyframes bgAnime {
    0% { opacity: 0; }
-   5% { opacity: 1; }
-  25% { opacity: 1; }
-  30% { opacity: 0; }
+  50% { opacity: 1; }
  100% { opacity: 0; }
+}
+
+.common_blog_list{
+  border-radius: 35px;
+}
+
+.img {
+  border-radius: 35px;
 }
