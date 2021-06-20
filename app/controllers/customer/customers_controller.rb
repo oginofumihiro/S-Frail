@@ -3,7 +3,12 @@ class Customer::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @followers = @customer.relationships
+    @relationship_followings = Relationship.where(customer_id: @customer.id)
+    @followings = []
+    @relationship_followings.each do |following|
+      customer = Customer.find(following.follow_id)
+      @followings.push(customer)
+    end
     @posts = @customer.posts
     @profile_images = @customer.profile_image
     @post = Post.where(customer_id: params[:id]).last
