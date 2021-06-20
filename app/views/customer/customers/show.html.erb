@@ -25,6 +25,6 @@
         <% end %>
       <% end %>
   </div>
-    <p>フォロー数:<%=link_to @customer.followings.count, customer_following_path %></p>
+    <p>フォロー数:<%=link_to @followings.count, customer_following_path %></p>
     <p>フォロワー数:<%=link_to @customer.followers.count, customer_follower_path %></p>
     <p>いいね数:<%= link_to @customer.favorites.count, customer_customer_favorites_path(@customer) %></p>
