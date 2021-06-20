@@ -1,7 +1,7 @@
-<% if post.favorited_by?(post) %>
+<% if post.favorited_by?(current_customer) %>
   <p>
     <%= link_to customer_favorite_path(id: post.id, post_image_id: post.post_image_id), method: :delete, remote: true do %>
-        ♥<%= post.favorites.count %> いいね
+      ♥<%= post.favorites.count %> いいね
     <% end %>
   </p>
 <% else %>

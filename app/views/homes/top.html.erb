@@ -1,6 +1,11 @@
 <!--topページ-->
-<div class="inner_bg">
-  <img src="/assets/354C9DFA-2161-4BEE-81C3-4D09EFC480EB_1_105_c.jpeg" alt="">
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="/assets/354C9DFA-2161-4BEE-81C3-4D09EFC480EB_1_105_c.jpeg" alt style="width: 100px; height: 100px;"></div>
+    <div class="swiper-slide"><image src="assets/38AD4B95-731E-48F9-A53A-1298B14D07FD_1_105_c.jpeg" alt style="width: 100px; height: 100px;"></div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
     <div class="inner_bg_caption">
       <h1>ようこそS.Frailへ！</h1>
       <p>
@@ -10,6 +15,27 @@
       </p>
     </div>
 </div>
+
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+      loop: true,         //画像のループ
+      effect: 'slide',    //切り替わるときのアニメーション
+      speed: 3000,        //画像の切替スピード
+      autoplay: {         //自動で動かす
+        delay: 3000,
+        disableOnInteraction: true
+      },
+      pagination: {        //ページネーション
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      },
+      navigation: {        //ナビケーション
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+</script>
 
 <!--新着一覧-->
 <div class = "container">
