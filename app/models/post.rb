@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorited_custmers, through: :favorites, source: :customer
 
-  def favorited_by?(post)
-    favorites.where(post_id: post.id).exists?
+  def favorited_by?(customer)
+    favorites.where(customer_id: customer.id).exists?
   end
 end
