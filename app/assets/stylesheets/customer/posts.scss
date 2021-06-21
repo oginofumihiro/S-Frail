@@ -2,14 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.blog_post_ttl{
+  margin: 20px 0;
+  font-size: 20px;
+  line-height: 1.667;
+  font-weight: bold;
+}
+
 
 .font{
-  font-size: 30px;
-  text-align: center;
-  font-family: 'arial unicode ms' , sans-serif;
+  text-align:center;
 }
+
+.col-3{
+  font-size: 20px;
+  border-radius: 50px;
+}
+
 .image{
-  border-radius: 20px;
+  border-radius: 50px;
 }
 
 .products_item_body{

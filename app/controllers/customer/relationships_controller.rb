@@ -4,7 +4,6 @@ class Customer::RelationshipsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     following = current_customer.follow(@customer)
-    following.save
     flash[:success] = 'ユーザーをフォローしました'
   end
 
@@ -20,7 +19,6 @@ class Customer::RelationshipsController < ApplicationController
   end
 
   def following
-    # @followings = current_customer.relationships
     @relationship_followings = Relationship.where(customer_id: current_customer.id)
     @followings = []
     @relationship_followings.each do |following|
