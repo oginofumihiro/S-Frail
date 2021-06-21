@@ -1,29 +1,28 @@
 <%= render partial: 'layouts/flash' %>
 <main>
-  <h1>投稿一覧</h1>
-  <!--検索機能-->
-  <div class="text-right">
-    <h1>ユーザー検索</h1>
-      <%= search_form_for @q, url: customer_search_path do |f| %>
-      <%= f.label :name_cont, '検索' %>
-      <%= f.search_field :name_cont %>
-      <br>
-      <%= f.submit '検索' %>
-      <% end %>
-  </div>
-  
-  <!--ランキング機能-->
-  <%= link_to "ランキング", customer_ranking_path %>
-  <div class = "container">
-    <div class = "row">
+  <h2 class="font">投稿一覧</h2>
+  <div class="container">
+    <div class="row">
       <% @posts.each do |post| %>
-        <div class = "col-3">
-          <%= attachment_image_tag post, :post_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></br>
-          <%= link_to post.name, customer_post_path(post) %><br>
-          <%= post.introduction %><br>
-          <%= post.genre.name %><br>
+        <div class="col-3">
+          <div class="image"><%= attachment_image_tag post, :post_image, format: 'jpeg', size: "200x200" , fallback: "no_image.jpg" %></div></br>
+            [<%= link_to post.name, customer_post_path(post) %>]
+            <%= post.genre.name %>
         </div>
       <% end %>
     </div>
   </div>
 </main>
+
+<!--ランキング機能-->
+    <%= link_to "ランキング", customer_ranking_path %>
+    <!--検索機能-->
+    <div class="text-right">
+      <h1>ユーザー検索</h1>
+        <%= search_form_for @q, url: customer_search_path do |f| %>
+        <%= f.label :name_cont, '検索' %>
+        <%= f.search_field :name_cont %>
+        <br>
+        <%= f.submit '検索' %>
+        <% end %>
+    </div>

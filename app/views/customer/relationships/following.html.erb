@@ -1,7 +1,24 @@
-<table>
-<% @followings.each do |following| %>
-<tr>
-  <td><%= following.last_name %> <%= following.first_name %> </td>
-  <td><%= link_to '詳細', customer_customer_path(following) %></td>
-</tr>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>プロフィール画像</th>
+            <th>ユーザーネーム</th>
+          </tr>
+        </thead>
+        <% @followings.each do |following| %>
+      <tbody>
+        <tr>
+          <td><%= attachment_image_tag following, :profile_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></td>
+          <td><%= following.last_name %></td>
+          <td><%= following.first_name %></td>
+          <td><%= link_to '詳細', customer_customer_path(following) %></td>
+        </tr>
+      </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
