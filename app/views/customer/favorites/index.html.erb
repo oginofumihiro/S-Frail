@@ -1,7 +1,24 @@
-<table>
-<% @favorites.each do |favorite| %>
-<tr>
-  <td><%= favorite.post.customer.last_name %> <%= favorite.post.customer.first_name %> </td>
-  <td><%= link_to '詳細', customer_customer_path(favorite.post.customer) %></td>
-</tr>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>プロフィール画像</th>
+            <th>ユーザーネーム</th>
+          </tr>
+        </thead>
+        <% @favorites.each do |favorite| %>
+      <tbody>
+        <tr>
+          <td><%= attachment_image_tag favorite.customer, :profile_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></td>
+          <td><%= favorite.post.customer.last_name %></td>
+          <td><%= favorite.post.customer.first_name %></td>
+          <td><%= link_to '詳細', customer_customer_path(favorite.post.customer) %></td>
+        </tr>
+      </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
