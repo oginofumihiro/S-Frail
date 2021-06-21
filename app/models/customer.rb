@@ -28,5 +28,6 @@ class Customer < ApplicationRecord
 
   def following?(other_customer)
     followings.include?(other_customer)
+ 
   end
 end

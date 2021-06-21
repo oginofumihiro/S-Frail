@@ -1,4 +1,4 @@
-<% unless current_customer == @post.customer %>
+<% unless @post.customer_id == current_customer.id %>
   <% if current_customer.following?(@post.customer) %>
     <%= form_with(model:@relationships, url: customer_relationship_path(@post.customer), method: :delete ) do |f| %>
      <%= f.hidden_field :follow_id, :value => @post.customer.id %>
@@ -12,4 +12,4 @@
      <%= f.submit 'フォローする', class: 'btn btn-primary btn-block', remote: true %>
   <% end %>
   <% end %>
-<% end %>
+  <% end %>
