@@ -40,6 +40,9 @@
               <%= link_to 'サイト概要', homes_about_path, class: "about dropdown-item" %>
             </li>
             <li>
+              <%= link_to "お問い合わせ", inquiry_path, class: "inquiry" %>
+            </li>
+            <li>
               <%= link_to "管理者", admin_session_path, class: "admin dropdown-item" %>
             </li>
             <li>
@@ -68,10 +71,5 @@
   </body>
   <footer class="clearfix">
     <p class="footer-text">© All rights reserved by Infratop.Inc.</p>
-    <ul class="func_nav">
-      <li>
-        <%= link_to "お問い合わせ", inquiry_path, class: "inquiry" %>
-      </li>
-    </ul>
   </footer>
 </html>
