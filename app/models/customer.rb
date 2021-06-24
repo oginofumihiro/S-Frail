@@ -4,7 +4,6 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :first_name,      presence: true
-  validates :password,        presence: true
   validates :email,           presence: true,uniqueness: true
 
   attachment :profile_image
@@ -28,6 +27,6 @@ class Customer < ApplicationRecord
 
   def following?(other_customer)
     followings.include?(other_customer)
- 
+
   end
 end
