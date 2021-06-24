@@ -3,17 +3,20 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
+
       <P><%= attachment_image_tag @customer, :profile_image, format: 'jpeg', size: "300x300" , fallback: "no_image.jpg"%>
       <P>氏名 : <%= @customer.last_name %> <%= @customer.first_name %></P>
       <P>カナ : <%= @customer.last_name_kana %> <%= @customer.first_name_kana %></P>
+      <% if @customer.id == current_customer.id %>
       <p><%= link_to "プロフィール編集", edit_customer_customer_path(@customer.id), class: "glyphicon glyphicon-pencil btn btn-success" %></p>
+      <% end %>
     </div>
     <div class="col-md-8 offset-md-1">
         <%= month_calendar(events: Post.where(customer_id: params[:id])) do |date, posts| %>
           <%= date.day %>
           <% posts.each do |post| %>
           <div>
-            <%= post.name %>
+            <%=link_to post.name, customer_post_path(post) %>
           </div>
           <% end %>
         <% end %>

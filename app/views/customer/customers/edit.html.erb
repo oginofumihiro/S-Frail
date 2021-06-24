@@ -1,57 +1,71 @@
-<h2>会員編集</h2>
-<%= form_with model: @customer, url: customer_customer_path(@customer.id), method: :patch, local:true do |f| %>
+<div class="container">
+  <div class= "row">
+    <div class= "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <div class= "font">会員編集</div>
+      <%# if @post.errors.any? %>
+        <%#= @post.errors.count %>
+        <%# @post.errors.full_messages.each do |message| %>
+        <%#= message %>
+        <%# end %>
+      <%# end %>
+      <div class="customer_edit">
+        <div class="customer_edit_list">
+          <%= form_with model: @customer, url: customer_customer_path(@customer.id), method: :patch, local:true do |f| %>
+            <%= attachment_image_tag @customer, :profile_image, :string, 60, 60, fallback: "no_image.jpg"%>
+            <%= f.label :profile_image, "プロフィール画像" %><br />
+            <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "edit_img" %>
 
-  <%= attachment_image_tag @customer, :profile_image, :string, 60, 60, fallback: "no_image.jpg"%>
-  <%= f.label :profile_image, "プロフィール画像" %><br />
-  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+            <div class="field">
+              <%= f.label :last_name, "(性)" %><br />
+              <%= f.text_field :last_name, autofocus: true %>
+            </div>
 
-  <div class="field">
-    <%= f.label :last_name, "(性)" %><br />
-    <%= f.text_field :last_name, autofocus: true %>
+            <div class="field">
+              <%= f.label :first_name, "(名)" %><br />
+              <%= f.text_field :first_name, autofocus: true %>
+            </div>
+
+            <div class="field">
+              <%= f.label :last_name_kana, "(セイ)" %><br />
+              <%= f.text_field :last_name_kana, autofocus: true %>
+            </div>
+
+            <div class="field">
+              <%= f.label :first_name_kana, "(メイ)" %><br />
+              <%= f.text_field :first_name_kana, autofocus: true %>
+            </div>
+
+            <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="field">
+            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+            <% if @minimum_password_length %>
+              <br />
+              <em><%= @minimum_password_length %> characters minimum</em>
+            <% end %>
+            </div>
+
+            <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field">
+            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.password_field :current_password, autocomplete: "current-password" %>
+            </div>
+
+            <div class="actions">
+            <%= f.submit "Update", class: "customer_edit_button" %>
+            </div>
+            <% end %>
+          <%= link_to "マイページに戻る", :back %>
+        </div>
+      </di>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :first_name, "(名)" %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name_kana, "(セイ)" %><br />
-    <%= f.text_field :last_name_kana, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :first_name_kana, "(メイ)" %><br />
-    <%= f.text_field :first_name_kana, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<%= link_to "Back", :back %>
+</div>
