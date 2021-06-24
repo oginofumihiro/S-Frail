@@ -11,15 +11,14 @@
           <%= link_to "削除", customer_post_path(@post), method: :delete, data: {confirm: '本当に削除しますか？'} %>
         <% end %>
       <!--フォロー機能-->
-
       <div class="follow_<%= @post.id %>">
         <%= render 'customer/posts/follow', post: @post %>
       </div>
-
       <!--いいね機能-->
       <div class="post_<%= @post.id %>">
         <%= render 'customer/posts/like', post: @post %>
       </div>
+      <P><%#= link_to "マイページ", customer_customer_path(customer) %></P>
       <!--コメント機能-->
       <div id="comments">
         <%= render 'customer/post_comments/comment', post: @post %>

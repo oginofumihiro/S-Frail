@@ -12,8 +12,7 @@
       <tbody>
         <tr>
           <td><%= attachment_image_tag following, :profile_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></td>
-          <td><%= following.last_name %></td>
-          <td><%= following.first_name %></td>
+          <td><%= following.last_name %> <%= following.first_name %></td>
           <td><%= link_to '詳細', customer_customer_path(following) %></td>
         </tr>
       </tbody>
