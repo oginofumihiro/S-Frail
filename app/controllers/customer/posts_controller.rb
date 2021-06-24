@@ -21,6 +21,7 @@ class Customer::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.start_time = DateTime.now
+    @post.customer_id = current_customer.id
     if @post.save
       flash[:success] = '投稿にに成功しました'
       redirect_to customer_posts_path
