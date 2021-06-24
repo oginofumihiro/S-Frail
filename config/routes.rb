@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'out' => 'customers#out'
     resources :customers, only: [:index]
-    resources :genres, only: %i[index create edit update destroy]
+    resources :genres, only: %i[new index create edit update destroy]
   end
 
   devise_for :customers, controllers: {
@@ -43,10 +43,11 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm
 
+  root 'homes#top'
   get 'top' => 'homes#top'
 
   get 'homes/about', to: 'homes#about'
-  root  'inquiry#index'
+ 
   get   'inquiry'         => 'inquiry#index'     # 入力画面
   post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面

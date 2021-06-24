@@ -11,9 +11,8 @@
         <% @followers.each do |follower| %>
         <tbody>
           <tr>
-            <td><%= attachment_image_tag follower.customer, :profile_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></td>
-            <td><%= follower.follow.last_name %></td>
-            <td><%= follower.follow.first_name %></td>
+            <td><%= attachment_image_tag follower., :profile_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></td>
+            <td><%= follower.follow.last_name %> <%= follower.follow.first_name %></td>
             <td><%= link_to '詳細', customer_customer_path(follower.follow) %></td>
           </tr>
         </tbody>
