@@ -8,11 +8,12 @@
             <div class="ranking_index_list">
               <%= attachment_image_tag post, :post_image, format: 'jpeg', size: "200x200" , fallback: "no_image.jpg", class: "ranking_index_img" %></br>
               [<%= link_to post.name, customer_post_path(post) %>]
-              <%= post.genre.name %>
+              <%= post.genre.try(:name) %>
             </div>
           </div>
         </div>
       <% end %>
     </div>
+   <%= paginate @posts %>
   </div>
 </main>
