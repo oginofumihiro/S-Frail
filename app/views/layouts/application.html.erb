@@ -3,6 +3,7 @@
   <head>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -50,10 +51,10 @@
             </li>
             <% elsif admin_signed_in? %>
             <li>
-              <%= link_to "ジャンル", admin_genres_path, class: "genre" %>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "logout" %>
             </li>
             <li>
-              <%= link_to "ログアウト", admin_out_path, class: "logout" %>
+              <%= link_to "ジャンル", admin_genres_path, class: "genre" %>
             </li>
             <li>
               <%= link_to "会員一覧", admin_customers_path, class: "customer" %>
@@ -74,7 +75,7 @@
       </div>
       </div>
       <div class="centering_parent">
-        <p class="header-center">〜健康寿命に革命を〜</p>
+        <p class="header-center sample-title">〜健康寿命に革命を〜</p>
       </div>
   </header>
   <body>
