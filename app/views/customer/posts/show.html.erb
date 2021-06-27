@@ -1,9 +1,12 @@
+<%= render partial: 'layouts/flash' %>
+<div class="test">
+</div>
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <%= attachment_image_tag @post, :post_image, format: 'jpeg', size: "400x200" , fallback: "no_image.jpg" %>
         <h1 class="blog_post_ttl">
-          [<%= @post.genre.name %>] <%= @post.name %>
+          [<%= @post.genre.try(:name) %>] <%= @post.name %>
         </h1>
           <P>投稿内容→<%= @post.introduction %></P>
         <% if @post.customer_id == current_customer.id %>
@@ -18,7 +21,7 @@
       <div class="post_<%= @post.id %>">
         <%= render 'customer/posts/like', post: @post %>
       </div>
-      <P><%#= link_to "マイページ", customer_customer_path(customer) %></P>
+      <P><%= link_to "投稿者マイページ", customer_customer_path(@post.customer) %></P>
       <!--コメント機能-->
       <div id="comments">
         <%= render 'customer/post_comments/comment', post: @post %>

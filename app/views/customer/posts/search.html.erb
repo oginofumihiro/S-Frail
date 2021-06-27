@@ -12,9 +12,9 @@
         <% @results.each do |post| %>
         <tbody>
           <tr>
-            <td><%#= attachment_image_tag follower.customer, :profile_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></td>
-            <td><%= post.name %></td>
-            <td><%= post.genre_id %></td>
+            <td><%= attachment_image_tag post, :post_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></td>
+            <td><%= link_to post.name, customer_post_path(post) %></td>
+            <td><%= post.genre.name %></td>
           </tr>
         </tbody>
         <% end %>
