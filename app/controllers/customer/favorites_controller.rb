@@ -12,7 +12,7 @@ class Customer::FavoritesController < ApplicationController
   end
 
   def index
-    @customer = Customer.find(params[:customer_id])
-    @favorites = @customer.favorites
+#    @customer = Customer.find(params[:customer_id])
+    @favorites = Favorite.where(customer_id: params[:customer_id])
   end
 end
