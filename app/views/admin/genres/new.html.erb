@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class= "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1>ジャンル新規投稿</h1>
+        <% if @genre.errors.any? %>
+          <ul>
+            <% @genre.errors.full_messages.each do |message| %>
+            <li>空白で登録は出来ません</li>
+            <% end %>
+          </ul>
+        <% end %>
+        <div class='create-foem'>
+          <%= form_with model: @genre, url:admin_genres_path, local:true do |f| %>
+          <%= f.label :ジャンル名 %>
+          <%= f.text_field :name %>
+          <%= f.submit 'ジャンルを追加' , class: 'btn btn-success' %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>

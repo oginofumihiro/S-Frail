@@ -1,0 +1,106 @@
+.container{
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em
+}
+
+// ログイン画面
+.font_sign_up{
+  text-align: center;
+  font-size: 30px;
+  margin: 0px 0px 20px 0px;
+}
+
+.sign_up{
+  text-align: center;
+  background: #f7f7f7;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.field{
+  margin: 20px 0px 0px 0px;
+}
+
+.sign_up_button{
+  margin: 30px 0px 0px 0px;
+  display: inline-block;
+  max-width: 180px;
+  // text-align: left;
+  // background-color: black;
+  font-size: 16px;
+  // color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 4px;
+}
+
+.button:active {
+  transform: translateY(4px);
+  border-bottom: none;
+}
+
+
+
+// 新規会員画面
+.sign_up{
+  text-align: center;
+}
+
+// 退会画面
+.font_withdrawal{
+  text-align: center;
+  font-size: 25px;
+  margin: 20px 0px 0px 0px;
+  font-family: "arial black";
+}
+
+.font_withdrawal_list{
+  margin: 25px 0px 0px 100px;
+}
+
+.withdrawal_button{
+  margin: 25px 0px 0px 0px;
+}
+
+// 会員編集
+.customer_edit{
+  margin: 80px 0px 0px 0px;
+  text-align: center;
+}
+
+.customer_edit_list{
+  width: 460px;
+  background: #f7f7f7;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.edit_img{
+  margin: 40px 0px 0px 0px;
+  text-align: center;
+}
+
+.customer_edit_button{
+  margin: 30px 0px 0px 0px;
+  display: inline-block;
+  max-width: 180px;
+  text-align: left;
+  background-color: black;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 4px;
+}
+
+.button:active {
+  transform: translateY(4px);
+  border-bottom: none;
+}
+
+.edit_back{
+  margin: 50px 0px 0px 0px;
+}
