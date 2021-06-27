@@ -4,8 +4,8 @@ class Customer::PostsController < ApplicationController
   before_action :set_q, only: %i[index new show create update edit destroy search]
 
   def index
-    @posts = Post.all.order(created_at: :desc)
-    @posts = Post.includes(:favorited_custmers).sort { |a, b| b.favorited_custmers.size <=> a.favorited_custmers.size }
+    @posts = Post.page(params[:page]).per(8).order(created_at: :desc)
+    # @posts = Post.includes(:favorited_custmers).sort { |a, b| b.favorited_custmers.size <=> a.favorited_custmers.size }
   end
 
   def show
@@ -52,7 +52,8 @@ class Customer::PostsController < ApplicationController
   end
 
   def ranking
-    @posts = Post.includes(:favorited_custmers).sort { |a, b| b.favorited_custmers.size <=> a.favorited_custmers.size }
+    ids = Post.includes(:favorited_custmers).sort { |a, b| b.favorited_custmers.size <=> a.favorited_custmers.size }.pluck(:id)
+    @posts = Post.where(id: ids).order_as_specified(id: ids).page(params[:page]).per(8)
   end
 
   private

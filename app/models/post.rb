@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  extend OrderAsSpecified
   validates :name, presence: true
   validates :introduction, presence: true
   validates :post_image, presence: true
