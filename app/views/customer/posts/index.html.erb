@@ -18,16 +18,19 @@
   <div class="container">
     <div class="row">
       <% @posts.each do |post| %>
-        <div class="col-3">
+        <div class="col-md-3">
           <div class="post_index">
             <div class="post_index_list">
               <div><%= attachment_image_tag post, :post_image, format: 'jpeg', size: "200x200" , fallback: "no_image.jpg", class: "index_img" %></div>
-              [<%= link_to post.name, customer_post_path(post) %>]
-              <%= post.genre.name %>
+              [<%= post.genre.try(:name) %>]
+              <%= link_to post.name, customer_post_path(post) %>
             </div>
           </div>
         </div>
       <% end %>
     </div>
+  </div>
+  <div>
+  <%= paginate @posts %>
   </div>
 </main>

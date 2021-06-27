@@ -1,3 +1,20 @@
 // Place all the styles related to the admin/genres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// ジャンル一覧
+
+.genre_new{
+  margin: 30px 0px 0px 0px;
+  text-align: center;
+}
+
+table{
+  margin: 30px 0px 0px 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.td{
+  margin: 0px 20px 0px 0px;
+}

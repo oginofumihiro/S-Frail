@@ -11,9 +11,9 @@
         <% @favorites.each do |favorite| %>
       <tbody>
         <tr>
-          <td><%= attachment_image_tag favorite.customer, :profile_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></td>
+          <td><%= attachment_image_tag favorite.post, :post_image, format: 'jpeg', size: "100x100" , fallback: "no_image.jpg" %></td>
           <td><%= favorite.post.name %></td>
-          <td><%= link_to '詳細', customer_customer_path(favorite.post) %></td>
+          <td><%= link_to '詳細', customer_post_path(favorite.post) %></td>
         </tr>
       </tbody>
         <% end %>
