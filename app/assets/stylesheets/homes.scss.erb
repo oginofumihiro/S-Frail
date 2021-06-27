@@ -42,11 +42,11 @@
 
 /* --- 段差で背景画像のアニメーションを実行 ----------------- */
 .box .src1 {
-  background-image: image-url('CB5CF3D5-F1E4-4092-8B79-B2C294AE8CF3_1_105_c.jpeg');/* 背景の画像を指定 */
+  background-image: image-url(<%= asset_path('CB5CF3D5-F1E4-4092-8B79-B2C294AE8CF3_1_105_c.jpeg') %>);/* 背景の画像を指定 */
   border-radius: 50px;
 }
 .box .src2 {
-  background-image: image-url('38AD4B95-731E-48F9-A53A-1298B14D07FD_1_105_c.jpeg');   /* 背景の画像を指定 */
+  background-image: image-url(<%= asset_path('38AD4B95-731E-48F9-A53A-1298B14D07FD_1_105_c.jpeg') %>);   /* 背景の画像を指定 */
   border-radius: 50px;
   animation-delay: 5s;
 }

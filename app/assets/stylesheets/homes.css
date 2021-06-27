@@ -1,0 +1,92 @@
+@charset "UTF-8";
+.box {
+  position: relative;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+  margin: 100px 0px 0px 0px; }
+
+.home_top {
+  color: white;
+  margin: 0px 0px 0px 100px; }
+
+.top-text {
+  color: white;
+  margin: 0px 0px 0px 100px; }
+
+.box .bgImg {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  width: 100%;
+  height: 600px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  background-size: 100% auto;
+  animation: bgAnime 10s infinite;
+  /* 4画像 × 各5s = 20s */
+  object-fit: cover; }
+
+/* --- 段差で背景画像のアニメーションを実行 ----------------- */
+.box .src1 {
+  background-image: image-url("CB5CF3D5-F1E4-4092-8B79-B2C294AE8CF3_1_105_c.jpeg");
+  /* 背景の画像を指定 */
+  border-radius: 50px; }
+
+.box .src2 {
+  background-image: image-url("38AD4B95-731E-48F9-A53A-1298B14D07FD_1_105_c.jpeg");
+  /* 背景の画像を指定 */
+  border-radius: 50px;
+  animation-delay: 5s; }
+
+@keyframes bgAnime {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+section {
+  position: relative; }
+
+.top_common_hd {
+  text-align: center; }
+
+.font_en {
+  font-family: 'Marck Script', cursive;
+  line-height: 1.5; }
+
+.common_blog_list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px; }
+
+.blog_img {
+  width: 22.847%;
+  margin-left: 2.87%; }
+
+.common_blog_item {
+  border-radius: 10px; }
+
+.page_title_ph {
+  margin: 0 0 0 auto;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px 0 0 20px;
+  margin: 100px 0px 0px 200px; }
+
+.about_list {
+  font-size: 20px;
+  margin: 40px 0px 0px 0px;
+  text-align: center; }
+
+.about_text {
+  font-size: 20px;
+  margin: 40px 0px 0px 0px;
+  text-align: center; }
+
+/*# sourceMappingURL=homes.css.map */
