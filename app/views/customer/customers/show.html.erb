@@ -2,8 +2,7 @@
 <!--マイページ-->
 <div class="container">
   <div class="row">
-    <div class="col-3">
-
+    <div class="col-md-3">
       <P><%= attachment_image_tag @customer, :profile_image, format: 'jpeg', size: "300x300" , fallback: "no_image.jpg"%>
       <P>氏名 : <%= @customer.last_name %> <%= @customer.first_name %></P>
       <P>カナ : <%= @customer.last_name_kana %> <%= @customer.first_name_kana %></P>
