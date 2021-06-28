@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :first_name,      presence: true
   validates :email,           presence: true,uniqueness: true
+  # validates :password, presence: true, on: :create
 
   attachment :profile_image
   has_many :posts, dependent: :destroy

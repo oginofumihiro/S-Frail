@@ -23,8 +23,8 @@
           <% @genres.each do |genre| %>
             <tr>
               <td><%= genre.name %></td>
-              <td><%= link_to '編集する', edit_admin_genre_path(genre), class: "btn btn-sm btn-success" %></td>
-              <td><%= link_to "削除する",  admin_genre_path(genre), method: :delete %></td>
+              <td><%= link_to '編集する', edit_admin_genre_path(genre), class: "genre_edit_button" %></td>
+              <td><%= link_to "削除する",  admin_genre_path(genre), method: :delete, class: "genre_destroy_button" %></td>
             </tr>
           <% end %>
         </table>

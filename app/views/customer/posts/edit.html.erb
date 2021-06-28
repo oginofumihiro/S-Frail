@@ -11,7 +11,7 @@
         <%= f.text_area :introduction %>
       <h4>ジャンル</h4>
         <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
-        <%= f.submit '保存を保存' %>
+        <%= f.submit '保存' %>
         <% end %>
     </div>
   </div>
