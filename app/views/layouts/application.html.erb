@@ -12,76 +12,76 @@
   </head>
 
   <!--会員側のheader-->
-  <header>
-    <div class= "header-top-content">
-      <%= link_to top_path, class:"header-title" do %>
-        <i class="fas fa-heartbeat">S.Frail</i>
-      <% end %>
-
-    <div class= "header-inner">
-      <nav class= "global_nav global_nav_pc">
-          <ul class="page_nav">
-            <% if customer_signed_in? %>
-            <li>
-              <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "logout" %>
-            </li>
-            <li>
-              <%= link_to "top", top_path, class: "top" %>
-            </li>
-            <li>
-              <%= link_to 'マイページ', customer_customer_path(current_customer), class: "myapge" %>
-            </li>
-            <li>
-              <%= link_to '新規投稿', new_customer_post_path, class: "newpost" %>
-            </li>
-            <li>
-              <%= link_to '投稿一覧', customer_posts_path, class: "post" %>
-            </li>
-            <li>
-              <%= link_to 'サイト概要', homes_about_path, class: "about" %>
-            </li>
-            <li>
-              <%= link_to "お問い合わせ", inquiry_path, class: "inquiry" %>
-            </li>
-            <li>
-              <%= link_to "管理者", admin_session_path, class: "admin" %>
-            </li>
-            <li>
-              <%= link_to "退会", customer_confirm_unsubscribe_path, class: "unsubscribe" %>
-            </li>
-            <% elsif admin_signed_in? %>
-            <li>
-              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "logout" %>
-            </li>
-            <li>
-              <%= link_to "ジャンル", admin_genres_path, class: "genre" %>
-            </li>
-            <li>
-              <%= link_to "会員一覧", admin_customers_path, class: "customer" %>
-            </li>
-            <% else %>
-            <li>
-              <%= link_to "新規登録", new_customer_registration_path, class: "signup" %>
-            </li>
-            <li>
-              <%= link_to "ログイン", new_customer_session_path, class: "login" %>
-            </li>
-            <li>
-              <%= link_to "topページ", top_path, class: "top" %>
-            </li>
-            <% end %>
-          </ul>
-      </nav>
-      </div>
-      </div>
-      <div class="centering_parent">
-        <p class="header-center sample-title">〜健康寿命に革命を〜</p>
-      </div>
-  </header>
   <body>
-    <%= yield %>
+    <header>
+      <div class= "header-top-content">
+        <%= link_to top_path, class:"header-title" do %>
+          <i class="fas fa-heartbeat">S.Frail</i>
+        <% end %>
+
+      <div class= "header-inner">
+        <nav class= "global_nav global_nav_pc">
+            <ul class="page_nav">
+              <% if customer_signed_in? %>
+              <li>
+                <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "logout" %>
+              </li>
+              <li>
+                <%= link_to "top", top_path, class: "top" %>
+              </li>
+              <li>
+                <%= link_to 'マイページ', customer_customer_path(current_customer), class: "myapge" %>
+              </li>
+              <li>
+                <%= link_to '新規投稿', new_customer_post_path, class: "newpost" %>
+              </li>
+              <li>
+                <%= link_to '投稿一覧', customer_posts_path, class: "post" %>
+              </li>
+              <li>
+                <%= link_to 'サイト概要', homes_about_path, class: "about" %>
+              </li>
+              <li>
+                <%= link_to "お問い合わせ", inquiry_path, class: "inquiry" %>
+              </li>
+              <li>
+                <%= link_to "管理者", admin_session_path, class: "admin" %>
+              </li>
+              <li>
+                <%= link_to "退会", customer_confirm_unsubscribe_path, class: "unsubscribe" %>
+              </li>
+              <% elsif admin_signed_in? %>
+              <li>
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "logout" %>
+              </li>
+              <li>
+                <%= link_to "ジャンル", admin_genres_path, class: "genre" %>
+              </li>
+              <li>
+                <%= link_to "会員一覧", admin_customers_path, class: "customer" %>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to "新規登録", new_customer_registration_path, class: "signup" %>
+              </li>
+              <li>
+                <%= link_to "ログイン", new_customer_session_path, class: "login" %>
+              </li>
+              <li>
+                <%= link_to "topページ", top_path, class: "top" %>
+              </li>
+              <% end %>
+            </ul>
+        </nav>
+        </div>
+        </div>
+        <div class="centering_parent">
+          <p class="header-center sample-title">〜健康寿命に革命を〜</p>
+        </div>
+    </header>
+      <%= yield %>
+    <footer class="clearfix">
+      <p class="footer-text">© All rights reserved by Infratop.Inc.</p>
+    </footer>
   </body>
-  <footer class="clearfix">
-    <p class="footer-text">© All rights reserved by Infratop.Inc.</p>
-  </footer>
 </html>
